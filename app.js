@@ -97,6 +97,9 @@
     $('card-phase').textContent = id === 0 ? 'Megtaláltad!' : 'Újra próbálhatod';
     status('card-status', id === 0 ? 'Szép munka! Ez a piros lap.' : 'Ez most nem a piros lap. Indíts új játékot, és próbáld újra!', id === 0 ? 'success' : 'error');
     $('card-start').textContent = 'Új játék ↗';
+    $('card-dialog-title').textContent = id === 0 ? 'Nyertél!' : 'Most nem sikerült!';
+    $('card-dialog-text').textContent = id === 0 ? 'Szép munka! Megtaláltad a piros lapot.' : 'Ez most nem a piros lap. Próbáld újra!';
+    if (!$('card-dialog').open) $('card-dialog').showModal();
   }
   function cancelCards() {
     cardRun++;
@@ -109,6 +112,7 @@
     $('card-start').disabled = false; $('card-speed').disabled = false;
   }
   async function startCards() {
+    if ($('card-dialog').open) $('card-dialog').close();
     cancelCards();
     const run = cardRun;
     const speed = Number($('card-speed').value);
@@ -149,6 +153,9 @@
     status('card-status', 'Melyik a piros? Kattints egy kártyára!');
     $('card-start').disabled = false; $('card-speed').disabled = false;
   }
+  $('card-dialog-new').addEventListener('click', () => { $('card-dialog').close(); startCards(); });
+  $('card-dialog-close').addEventListener('click', () => $('card-dialog').close());
+  $('card-dialog').addEventListener('click', event => { if (event.target === $('card-dialog')) $('card-dialog').close(); });
   $('card-start').addEventListener('click', startCards); renderCards();
 
   let visits, position, walkSteps, walkTimer = null;
@@ -299,6 +306,7 @@
       }
     }
     if ($('chair-dialog').open) $('chair-dialog').close();
+    if ($('card-dialog').open) $('card-dialog').close();
     document.querySelectorAll('.view').forEach(section => { section.hidden = section.id !== target; });
     currentView = target;
     const title = target === 'home' ? 'Online műhely' : $(target).querySelector('h1').textContent;
