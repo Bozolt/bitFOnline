@@ -1489,3 +1489,8 @@ input[type=range] {
 .brand-accent {
   color:var(--accent);
 }
+
+/* A találati doboz magassága a tartalmához igazodik. */
+#prime .play-area {
+  min-height:0;
+}
