@@ -29,7 +29,7 @@ button,input {
 button,.button {
   cursor:pointer;
   border:1px solid var(--line);
-  background:#fcf8ff;
+  background:#f3e9ff;
   border-radius:9px;
   padding:13px 18px;
   font-weight:700;
@@ -272,7 +272,7 @@ h1 span {
   border:1px solid var(--line);
   border-radius:var(--radius);
   padding:23px;
-  background:#fbf6ff;
+  background:#f3e9ff;
   transition:transform .2s,box-shadow .2s,border-color .2s
 }
 .game-card:hover {
@@ -389,7 +389,7 @@ h1 span {
   border-radius:7px;
   background:#e1c8f2;
   color:var(--accent);
-  border:3px solid #fbf6ff;
+  border:3px solid #f3e9ff;
   box-shadow:0 1px 4px #0002;
   display:grid;
   place-items:center;
@@ -539,7 +539,7 @@ label {
 }
 output {
   font-size:11px;
-  background:white;
+  background:#f3e9ff;
   border:1px solid var(--line);
   border-radius:5px;
   padding:4px 7px;
@@ -550,7 +550,7 @@ input[type=number] {
   width:100%;
   border:1px solid #bda0d0;
   border-radius:7px;
-  background:#fcf8ff;
+  background:#f3e9ff;
   padding:12px;
   font-size:20px;
   color:var(--ink);
@@ -602,7 +602,7 @@ input[type=range] {
   padding:27px;
   border:1px solid var(--line);
   border-radius:var(--radius);
-  background:#fdfaff;
+  background:#f3e9ff;
   min-height:370px
 }
 .area-heading {
@@ -774,7 +774,7 @@ input[type=range] {
   padding:0;
   border:1px solid #cbb0df;
   border-radius:13px;
-  background:#fdf7ff;
+  background:#f3e9ff;
   box-shadow:0 7px 0 #562a7514;
   opacity:1!important;
   transform-style:preserve-3d
@@ -784,7 +784,7 @@ input[type=range] {
 }
 .playing-card.backside {
   background:repeating-linear-gradient(45deg,#713d96 0 8px,#8b5aaa 8px 9px);
-  border:7px solid #fdf7ff;
+  border:7px solid #f3e9ff;
   color:#efddff
 }
 .playing-card .card-symbol {
@@ -867,7 +867,7 @@ input[type=range] {
   height:5px;
   position:absolute;
   border-radius:50%;
-  background:white;
+  background:#f3e9ff;
   top:3px;
   right:3px
 }
@@ -997,7 +997,7 @@ input[type=range] {
   position:relative;
   border:1px solid #dcc4ec;
   border-radius:12px;
-  background-color:#f8f0ff;
+  background-color:#f3e9ff;
   background-image:radial-gradient(#ddc6ed 1px,transparent 1px);
   background-size:20px 20px;
   overflow:hidden
