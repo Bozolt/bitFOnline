@@ -15,7 +15,7 @@ A játékokhoz **nem kell szerver, internet, telepítés vagy Node.js**. Minden 
 | # | Feladat | Megvalósítás |
 |---|---|---|
 | 1 | Relatív prímek | 2–100 közötti egész bemenet ellenőrzése; az összes megfelelő szám 2–100 között; euklideszi algoritmus. |
-| 2 | Távolsági székfoglaló | 10–20 szék egy sorban, véletlen 5–15 értékkel; két játékos; egy körre szóló szomszédtiltás; azonnali befejezés, ha nincs lépés; pontösszesítés és felugró eredményablak a végén. |
+| 2 | Távolsági székfoglaló | 10–20 szék egy sorban, véletlen 5–15 értékkel; két játékos; egy körre szóló szomszédtiltás; azonnali befejezés, ha nincs lépés; pontösszesítés. |
 | 3 | Itt a piros, hol a piros | 2,5 másodperces felfedés, hátlapok, 7 animált csere, 5 sebesség, egyetlen tipp és eredmény. |
 | 4 | Véletlenszerű séta | Összefüggő falas térkép; csak szomszédos, szabad mezőre lép; a legkevesebbszer látogatottak közül véletlen választás; látogatásszámok; 50–1000 ms időköz, szünet és egyedi lépés. |
 | 5 | Bombaszakértők | 3–15 véletlen vezeték; zöld → sárga → piros → kék → fekete, azonos színnél balról jobbra; helyes végigjátszás és azonnali hibajelzés. |
