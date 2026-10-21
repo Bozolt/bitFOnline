@@ -297,7 +297,8 @@
     status('memory-status', success ? `Szép munka! Mind a(z) ${memory.count} kört megtaláltad. Időd: ${time}.` : `A sorrend megszakadt. A(z) ${memory.next}. számot kellett volna választani.`, success ? 'success' : 'error');
     $('memory-start').textContent = 'Új próba ↗';
     $('memory-dialog-title').textContent = success ? 'Hibátlan sorrend!' : 'Most nem sikerült!';
-    $('memory-dialog-text').textContent = success ? `Időd: ${time}` : `A(z) ${memory.next}. számot kellett volna választani.`;
+    $('memory-dialog-text').textContent = success ? `Időd: ${time}` : '';
+    $('memory-dialog-text').hidden = !success;
     if (!$('memory-dialog').open) $('memory-dialog').showModal();
   }
   function pickMemory(number) {

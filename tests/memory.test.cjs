@@ -51,7 +51,8 @@ test('Memória: siker idővel, hibás sorrend, új próba és bezárás', () => 
   assert.equal($('memory-board').children[0].textContent, 1);
   $('memory-board').children[1].listeners.click();
   assert.equal($('memory-dialog-title').textContent, 'Most nem sikerült!');
-  assert.equal($('memory-dialog-text').textContent, 'A(z) 1. számot kellett volna választani.');
+  assert.equal($('memory-dialog-text').textContent, '');
+  assert.equal($('memory-dialog-text').hidden, true);
   assert.equal(frames.size, 0);
   $('memory-dialog-close').listeners.click();
   assert.equal($('memory-dialog').open, false);
