@@ -1387,3 +1387,8 @@ input[type=range] {
     margin-bottom:28px
   }
 }
+
+/* A kártyajáték állapotfeliratának helye megmarad. */
+#card-status {
+  visibility:hidden;
+}
