@@ -3,6 +3,21 @@
   'use strict';
   const G = window.BitGames;
   const $ = id => document.getElementById(id);
+  function applyTheme(theme) {
+    const dark = theme === 'dark';
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    $('theme-toggle').textContent = dark ? '☀ Világos mód' : '☾ Sötét mód';
+    $('theme-toggle').setAttribute('aria-pressed', String(dark));
+    $('theme-toggle').setAttribute('aria-label', dark ? 'Világos mód bekapcsolása' : 'Sötét mód bekapcsolása');
+  }
+  let savedTheme = 'light';
+  try { savedTheme = localStorage.getItem('bitfarago-theme') || 'light'; } catch (_) {}
+  applyTheme(savedTheme);
+  $('theme-toggle').addEventListener('click', () => {
+    const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    applyTheme(theme);
+    try { localStorage.setItem('bitfarago-theme', theme); } catch (_) {}
+  });
   const status = (id, message, type = '') => { $(id).textContent = message; $(id).className = 'status' + (type ? ' ' + type : ''); };
   const elapsed = value => (value / 1000).toLocaleString('hu-HU', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' mp';
   function bindRange(id, format = value => value) {
