@@ -1349,6 +1349,7 @@ input[type=range] {
 }
 
 /* A kártyajáték állapotfeliratának helye megmarad. */
+#prime-status,
 #card-status,
 #walk-status,
 #bomb-status,
