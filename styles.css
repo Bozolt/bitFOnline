@@ -1391,7 +1391,8 @@ input[type=range] {
 }
 
 /* A kártyajáték állapotfeliratának helye megmarad. */
-#card-status {
+#card-status,
+#walk-status {
   visibility:hidden;
   height:12px;
   min-height:12px;
