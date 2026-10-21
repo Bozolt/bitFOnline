@@ -168,7 +168,7 @@
   $('card-dialog').addEventListener('click', event => { if (event.target === $('card-dialog')) $('card-dialog').close(); });
   $('card-start').addEventListener('click', startCards); renderCards();
 
-  let visits, position, walkSteps, walkTimer = null;
+  let visits, position, walkSteps, walkTimer = null, walkCompleted = false;
   const openCells = G.map.join('').split('').filter(cell => cell === '0').length;
   function renderWalk() {
     const fragment = document.createDocumentFragment();
@@ -195,18 +195,38 @@
   function stepWalk() {
     const next = G.walkStep(G.map, visits, position);
     if (!next) { pauseWalk(); status('walk-status', 'Nincs szabad szomszédos mező. A séta megállt.'); return false; }
-    position = next; walkSteps++; renderWalk(); return true;
+    position = next; walkSteps++; renderWalk();
+    if (!walkCompleted && visits.flat().filter(n => n > 0).length === openCells) {
+      walkCompleted = true;
+      pauseWalk();
+      status('walk-status', 'Minden szabad mezőt felfedeztél! A sétát folytathatod.', 'success');
+      $('walk-dialog').showModal();
+      return false;
+    }
+    return true;
   }
   function scheduleWalk() {
     walkTimer = setTimeout(() => { if (stepWalk()) scheduleWalk(); }, Number($('walk-speed').value));
   }
+  function resumeWalk() {
+    if (walkTimer !== null) return;
+    $('walk-start').textContent = 'Szüneteltetés Ⅱ';
+    $('walk-step').disabled = true;
+    status('walk-status', 'A bit felfedez. A sebességet menet közben is állíthatod.');
+    scheduleWalk();
+  }
+  $('walk-dialog-continue').addEventListener('click', () => { $('walk-dialog').close(); resumeWalk(); });
+  $('walk-dialog-close').addEventListener('click', () => $('walk-dialog').close());
+  $('walk-dialog').addEventListener('click', event => { if (event.target === $('walk-dialog')) $('walk-dialog').close(); });
   $('walk-start').addEventListener('click', () => {
     if (walkTimer !== null) { pauseWalk(); status('walk-status', 'A séta szünetel. Folytathatod vagy léphetsz egyet.'); }
-    else { $('walk-start').textContent = 'Szüneteltetés Ⅱ'; $('walk-step').disabled = true; status('walk-status', 'A bit felfedez. A sebességet menet közben is állíthatod.'); scheduleWalk(); }
+    else resumeWalk();
   });
   $('walk-speed').addEventListener('input', () => { if (walkTimer !== null) { clearTimeout(walkTimer); scheduleWalk(); } });
   $('walk-step').addEventListener('click', () => { if (stepWalk()) status('walk-status', 'Egy lépéssel tovább. Folytasd tetszőleges tempóban.'); });
   function resetWalk() {
+    if ($('walk-dialog').open) $('walk-dialog').close();
+    walkCompleted = false;
     walkSteps = 0; pauseWalk(); position = [0, 0];
     visits = G.map.map(row => Array(row.length).fill(0)); visits[0][0] = 1;
     renderWalk(); status('walk-status', 'A kiindulómező már 1 látogatásnak számít.');
@@ -317,6 +337,7 @@
     }
     if ($('chair-dialog').open) $('chair-dialog').close();
     if ($('card-dialog').open) $('card-dialog').close();
+    if ($('walk-dialog').open) $('walk-dialog').close();
     document.querySelectorAll('.view').forEach(section => { section.hidden = section.id !== target; });
     currentView = target;
     const title = target === 'home' ? 'Online műhely' : $(target).querySelector('h1').textContent;

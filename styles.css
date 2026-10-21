@@ -1350,7 +1350,8 @@ input[type=range] {
   letter-spacing:-.8px
 }
 .dialog-body #chair-dialog-text,
-.dialog-body #card-dialog-text {
+.dialog-body #card-dialog-text,
+.dialog-body #walk-dialog-text {
   font-size:13px;
   line-height:1.7;
   color:var(--muted);
