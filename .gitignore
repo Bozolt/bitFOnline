@@ -1,0 +1,4 @@
+.openai/
+dist/
+*.zip
+node_modules/
