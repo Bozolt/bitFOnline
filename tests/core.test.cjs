@@ -171,3 +171,14 @@ test('Offline: minden HTML-erőforrás relatív, helyben megtalálható', () => 
   }
   assert.equal(/type="module"/.test(html), false);
 });
+
+test('Séta: a képen megadott 10×10-es térkép és kezdőmező', () => {
+  assert.equal(G.map.length, 10);
+  assert.ok(G.map.every(row => row.length === 10));
+  assert.deepEqual(G.walkStart, [2, 2]);
+  assert.equal(G.map[G.walkStart[1]][G.walkStart[0]], '0');
+  const walls = [[1], [2], [3, 4, 7, 9], [4, 7, 9], [2, 3, 4, 5, 7, 8, 9], [1], [1, 7], [], [2, 8], [0, 1]];
+  G.map.forEach((row, y) => {
+    assert.deepEqual([...row].flatMap((cell, x) => cell === '1' ? [x] : []), walls[y]);
+  });
+});

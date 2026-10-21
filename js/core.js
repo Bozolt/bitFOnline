@@ -49,17 +49,18 @@
     state.over = state.cut.length === state.wires.length;
     return true;
   }
+  const walkStart = [2, 2];
   const map = [
-    '000000000000',
-    '011011101110',
-    '000010000010',
-    '010010110000',
-    '010000010110',
-    '011101000010',
-    '000001011010',
-    '011000000000',
-    '000011101110',
-    '000000000000'
+    '0100000000',
+    '0010000000',
+    '0001100101',
+    '0000100101',
+    '0011110111',
+    '0100000000',
+    '0100000100',
+    '0000000000',
+    '0010000010',
+    '1100000000'
   ];
   function walkOptions(grid, visits, position) {
     const [x, y] = position;
@@ -102,7 +103,7 @@
     state.over = state.next > state.count;
     return true;
   }
-  const api = { integer, randomInt, gcd, coprimes, newChairs, legalChairs, takeChair, chairScores, colors, wireOrder, cutWire, map, walkOptions, walkStep, shuffled, memoryLayout, memoryPick };
+  const api = { integer, randomInt, gcd, coprimes, newChairs, legalChairs, takeChair, chairScores, colors, wireOrder, cutWire, map, walkStart, walkOptions, walkStep, shuffled, memoryLayout, memoryPick };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.BitGames = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

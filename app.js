@@ -227,8 +227,8 @@
   function resetWalk() {
     if ($('walk-dialog').open) $('walk-dialog').close();
     walkCompleted = false;
-    walkSteps = 0; pauseWalk(); position = [0, 0];
-    visits = G.map.map(row => Array(row.length).fill(0)); visits[0][0] = 1;
+    walkSteps = 0; pauseWalk(); position = G.walkStart ? [...G.walkStart] : [0, 0];
+    visits = G.map.map(row => Array(row.length).fill(0)); visits[position[1]][position[0]] = 1;
     renderWalk(); status('walk-status', 'A kiindulómező már 1 látogatásnak számít.');
   }
   $('walk-reset').addEventListener('click', resetWalk); resetWalk();
