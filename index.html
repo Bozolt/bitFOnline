@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hat játékos kihívás: a Bitfaragó online forduló offline is működő megoldásai.">
+  <title>Bitfaragó · Online műhely</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="js/core.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="#home" aria-label="Bitfaragó kezdőoldal"><span class="brand-icon">b<span>f</span></span><span>bitfaragó<span class="brand-sub">ONLINE MŰHELY</span></span></a>
+    <nav aria-label="Főmenü"><a href="#home" class="home-link">A kihívások</a><span class="offline"><i></i> Offline is működik</span></nav>
+  </header>
+  <main>
+    <section id="home" class="view">
+      <div class="hero">
+        <div><p class="eyebrow">GONDOLKODJ. FIGYELJ. JÁTSSZ.</p><h1>Kis játékok.<br><span>Nagy agytorna.</span></h1><p class="hero-copy">Hat kihívás, hatféle gondolkodás. Számolj, taktikázz,<br class="desktop-break"> figyelj és fedezz fel — a saját tempódban.</p><a href="#challenges" class="button primary hero-button">Válassz egy kihívást <span>↗</span></a></div>
+        <div class="hero-art" aria-hidden="true"><span class="art-label">A KÍVÁNCSISÁG HAJT.</span><div class="art-grid"></div><div class="art-piece piece-one">01</div><div class="art-piece piece-two">?</div><div class="art-piece piece-three">↗</div><span class="art-dot"></span><span class="art-caption">6 feladat · végtelen próbálkozás</span></div>
+      </div>
+      <div class="section-line" id="challenges"><h2>A kihívások</h2><span>01 — 06 / Válassz szabadon</span></div>
+      <div class="game-grid">
+        <a class="game-card" href="#prime"><div class="card-top"><span>01 / SZÁMELMÉLET</span><span class="points">32 pont</span></div><div class="tile-art numbers-art" aria-hidden="true"><b>12</b><span>↔</span><b>35</b></div><h3>Relatív prímek</h3><p>Két szám, egyetlen közös osztó.<br>Találd meg az összes jó párost!</p><span class="card-bottom">Számoljunk <b>↗</b></span></a>
+        <a class="game-card" href="#chairs"><div class="card-top"><span>02 / TAKTIKA</span><span class="points">48 pont</span></div><div class="tile-art chairs-art" aria-hidden="true"><i></i><i></i><i></i><i></i></div><h3>Távolsági székfoglaló</h3><p>Két játékos, egy sor szék.<br>Minden foglalás új helyzetet teremt.</p><span class="card-bottom">Foglalj helyet <b>↗</b></span></a>
+        <a class="game-card" href="#cards"><div class="card-top"><span>03 / FIGYELEM</span><span class="points">40 pont</span></div><div class="tile-art cards-art" aria-hidden="true"><i>✦</i><i>♥</i><i>✦</i></div><h3>Itt a piros, hol a piros</h3><p>Kövesd a piros lap útját.<br>A szemed gyorsabb a keverésnél?</p><span class="card-bottom">Kövesd a lapot <b>↗</b></span></a>
+        <a class="game-card" href="#walk"><div class="card-top"><span>04 / FELFEDEZÉS</span><span class="points">48 pont</span></div><div class="tile-art walk-art" aria-hidden="true"><span>·</span><span>1</span><span class="wall"></span><span>2</span><span class="wall"></span><span class="explorer">✦</span><span>1</span><span>·</span></div><h3>Véletlenszerű séta</h3><p>Egy kíváncsi bit a labirintusban.<br>Figyeld, ahogy bejárja a térképet!</p><span class="card-bottom">Indulj felfedezni <b>↗</b></span></a>
+        <a class="game-card" href="#bomb"><div class="card-top"><span>05 / SORREND</span><span class="points">40 pont</span></div><div class="tile-art wires-art" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><h3>Bombaszakértők</h3><p>A helyes sorrend a megoldás.<br>Segíts Carlnak a gyakorlásban!</p><span class="card-bottom">Vágj bele <b>↗</b></span></a>
+        <a class="game-card" href="#memory"><div class="card-top"><span>06 / MEMÓRIA</span><span class="points">48 pont</span></div><div class="tile-art memory-art" aria-hidden="true"><i>1</i><i>2</i><i>3</i></div><h3>Memóriateszt</h3><p>Jegyezd meg, aztán kattints sorban.<br>Hány helyet tudsz fejben tartani?</p><span class="card-bottom">Tedd próbára magad <b>↗</b></span></a>
+      </div>
+    </section>
+
+    <section id="prime" class="view game-view" hidden>
+      <a href="#home" class="back">← Összes kihívás</a><p class="eyebrow">01 / SZÁMELMÉLET · 32 PONT</p><h1>Relatív prímek</h1><p class="intro">Két szám relatív prím, ha az egyetlen közös pozitív osztójuk az 1.</p>
+      <div class="workspace"><aside class="settings"><h2>Keressünk párokat!</h2><form id="prime-form" novalidate><label for="prime-number">Egész szám (2–100)</label><input id="prime-number" type="number" min="2" max="100" step="1" value="12" required><button class="primary" type="submit">Mutasd a számokat <span>→</span></button></form><p class="hint">A találatok a 2-től 100-ig terjedő tartományból kerülnek ki.</p></aside><div class="play-area"><div class="area-heading"><h2>A megfelelő számok</h2><span id="prime-count" class="badge">— találat</span></div><p id="prime-status" class="status" role="status">Adj meg egy számot a kereséshez.</p><div id="prime-results" class="number-grid"></div></div></div>
+    </section>
+
+    <section id="chairs" class="view game-view" hidden>
+      <a href="#home" class="back">← Összes kihívás</a><p class="eyebrow">02 / TAKTIKA · 48 PONT</p><h1>Távolsági székfoglaló</h1><p class="intro">Foglaljatok felváltva! A szomszédos székek egy lépés erejéig tiltottak.</p>
+      <div class="workspace"><aside class="settings"><h2>Ketten az igazi</h2><label for="chair-count">Székek száma <output id="chair-count-value">14</output></label><input id="chair-count" type="range" min="10" max="20" value="14"><button id="chair-start" class="primary">Új játék <span>↗</span></button><div class="rule"><h3>A játékszabály</h3><p>Csak szabad székre ülhetsz. Az előző foglalás két közvetlen szomszédja most nem választható.</p><p>Ha a soron következő játékos nem tud lépni, a játék azonnal véget ér. A nagyobb összérték nyer.</p></div></aside><div class="play-area"><div class="score-row"><div class="score player-one">1. játékos <strong id="score-one">0</strong></div><div class="score player-two">2. játékos <strong id="score-two">0</strong></div></div><p id="chair-status" class="status" role="status"></p><div class="chair-scroll"><div id="chair-board" class="chair-board" aria-label="Székek egy sorban"></div></div><p class="hint">A széken lévő szám az értéke. <span class="legend-lock">×</span> = erre a lépésre tiltott. Keskeny képernyőn a sor oldalra görgethető.</p></div></div>
+    </section>
+
+    <section id="cards" class="view game-view" hidden>
+      <a href="#home" class="back">← Összes kihívás</a><p class="eyebrow">03 / FIGYELEM · 40 PONT</p><h1>Itt a piros, hol a piros</h1><p class="intro">Jegyezd meg a piros lapot, kövesd a keverést, majd válassz!</p>
+      <div class="workspace"><aside class="settings"><h2>Tartsd szemmel!</h2><label for="card-speed">Keverés sebessége <output id="card-speed-value">3 / 5</output></label><input id="card-speed" type="range" min="1" max="5" value="3"><div class="range-labels"><span>Kényelmes</span><span>Villámgyors</span></div><button id="card-start" class="primary">Indítás <span>↗</span></button><p class="hint">2,5 másodpercig láthatod a lapokat, aztán 7 animált csere következik. Csak a keverés végén választhatsz.</p></aside><div class="play-area"><div class="area-heading"><h2>Hol rejtőzik a piros?</h2><span id="card-phase" class="badge">Készen állsz?</span></div><p id="card-status" class="status" role="status">Az Indítás gombbal kezdhetsz.</p><div id="card-stage" class="card-stage" aria-label="Három kártya"></div><div class="stage-footer">FIGYELD A MOZGÁST, NE CSAK A HELYET.</div></div></div>
+    </section>
+
+    <section id="walk" class="view game-view" hidden>
+      <a href="#home" class="back">← Összes kihívás</a><p class="eyebrow">04 / FELFEDEZÉS · 48 PONT</p><h1>Véletlenszerű séta</h1><p class="intro">Egy felfedező bit mindig a kevésbé látogatott szomszédok felé indul.</p>
+      <div class="workspace"><aside class="settings"><h2>Lépésről lépésre</h2><label for="walk-speed">Lépések időköze <output id="walk-speed-value">300 ms</output></label><input id="walk-speed" type="range" min="50" max="1000" step="50" value="300"><div class="range-labels"><span>Gyors</span><span>Lassú</span></div><button id="walk-start" class="primary">Séta indítása <span>→</span></button><div class="button-row"><button id="walk-step">Egy lépés</button><button id="walk-reset">Újrakezdés</button></div><div class="rule"><h3>Így tájékozódik</h3><p>Csak a négy szomszédos mezőt ismeri. A legkevesebbszer látogatott, szabad szomszédok közül véletlenül választ.</p><p>A fekete mező fal. A kék mező a bit; a számok a látogatások számát mutatják.</p></div></aside><div class="play-area"><div class="area-heading"><h2>A felfedezés térképe</h2><span id="walk-coverage" class="badge"></span></div><p id="walk-status" class="status" role="status">A kiindulómező már 1 látogatásnak számít.</p><div id="walk-map" class="walk-map" role="img" aria-label="Labirintus látogatásszámlálókkal"></div><div class="walk-stats"><span>Lépések <strong id="walk-steps">0</strong></span><span>Felfedezve <strong id="walk-percent">0%</strong></span></div></div></div>
+    </section>
+
+    <section id="bomb" class="view game-view" hidden>
+      <a href="#home" class="back">← Összes kihívás</a><p class="eyebrow">05 / SORREND · 40 PONT</p><h1>Bombaszakértők</h1><p class="intro">Segíts Carl közlegénynek: vágd el a vezetékeket a megfelelő sorrendben.</p>
+      <div class="workspace"><aside class="settings"><h2>Gyakorlat teszi</h2><label for="wire-count">Vezetékek száma <output id="wire-count-value">8</output></label><input id="wire-count" type="range" min="3" max="15" value="8"><button id="bomb-start" class="primary">Új bomba <span>↗</span></button><div class="rule"><h3>A vágás sorrendje</h3><p>A magyar színnevek fordított betűrendben következnek:</p><ol class="color-order"><li>Zöld</li><li>Sárga</li><li>Piros</li><li>Kék</li><li>Fekete</li></ol><p>Azonos színnél mindig balról jobbra haladj. Egyetlen rossz vágás lezárja a próbálkozást.</p></div></aside><div class="play-area"><div class="area-heading"><h2>Gyakorlóbomba</h2><span id="bomb-progress" class="badge"></span></div><p id="bomb-status" class="status" role="status"></p><div class="bomb-case"><div class="bomb-label"><span>CARL / GYAKORLÓEGYSÉG</span><span id="bomb-light">● AKTÍV</span></div><div id="wire-board" class="wire-board"></div><span class="bomb-caption">KATTINTS A VÁGANDÓ VEZETÉKRE</span></div></div></div>
+    </section>
+
+    <section id="memory" class="view game-view" hidden>
+      <a href="#home" class="back">← Összes kihívás</a><p class="eyebrow">06 / MEMÓRIA · 48 PONT</p><h1>Memóriateszt</h1><p class="intro">Jegyezd meg a számok helyét, és kattints rájuk növekvő sorrendben.</p>
+      <div class="workspace"><aside class="settings"><h2>Fejben tartod?</h2><label for="memory-count">Körök száma <output id="memory-count-value">7</output></label><input id="memory-count" type="range" min="5" max="9" value="7"><button id="memory-start" class="primary">Indítás <span>↗</span></button><div class="rule"><h3>A memória pillanata</h3><p>Az idő a számok megjelenésekor indul. Az 1-esre kattintva a többi szám eltűnik.</p><p>Folytasd emlékezetből 2-től az utolsó számig. Tévesztésnél a játék megáll.</p></div></aside><div class="play-area"><div class="area-heading"><h2 id="memory-next">Készülj a sorrendre!</h2><span class="timer" id="memory-time" role="timer" aria-label="Eltelt idő">0,00 mp</span></div><p id="memory-status" class="status" role="status">Indíts egy új próbát.</p><div id="memory-board" class="memory-board" aria-label="Memóriajáték"><p class="empty-message">A számok itt jelennek meg.<br><span>Készen áll a memóriád?</span></p></div></div></div>
+    </section>
+  </main>
+  <footer><span class="footer-brand">bitfaragó<span> / online forduló</span></span><span>Hat feladat. Egy kis kíváncsiság.</span></footer>
+  <noscript>A játékokhoz engedélyezd a JavaScriptet a böngészőben.</noscript>
+</body>
+</html>
