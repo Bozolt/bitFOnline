@@ -706,7 +706,7 @@ input[type=range] {
 .chair {
   flex:0 0 43px;
   width:43px;
-  padding:0;
+  padding:0 0 17px;
   border:0;
   border-radius:0;
   background:transparent!important;
@@ -735,13 +735,6 @@ input[type=range] {
   bottom:-17px;
   border-left:4px solid #b898cf;
   border-right:4px solid #b898cf
-}
-.chair-index {
-  display:block;
-  font-size:9px;
-  font-weight:400;
-  color:var(--muted);
-  margin-top:21px
 }
 .chair small {
   font-size:8px;

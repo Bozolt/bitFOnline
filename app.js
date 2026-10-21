@@ -60,7 +60,7 @@
       button.className = 'chair' + (owner ? ' owner-' + owner : blocked ? ' blocked' : '');
       button.disabled = chairs.over || !!owner || blocked;
       const label = owner ? owner + '. játékos' : blocked ? '× tiltott' : 'szabad';
-      button.innerHTML = `<span class="chair-seat">${value}<small>${label}</small></span><span class="chair-index">${i + 1}. szék</span>`;
+      button.innerHTML = `<span class="chair-seat">${value}<small>${label}</small></span>`;
       button.setAttribute('aria-label', `${i + 1}. szék, ${value} pont, ${label}`);
       button.addEventListener('click', () => { if (G.takeChair(chairs, i)) renderChairs(); });
       $('chair-board').append(button);
