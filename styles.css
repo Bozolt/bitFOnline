@@ -405,7 +405,7 @@ h1 span {
   margin-right:-16px
 }
 .cards-art i:nth-child(2) {
-  background:#fae6da;
+  background:var(--mint);
   color:var(--red);
   transform:translateY(-6px);
   z-index:1
