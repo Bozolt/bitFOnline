@@ -1352,7 +1352,8 @@ input[type=range] {
 .dialog-body #chair-dialog-text,
 .dialog-body #card-dialog-text,
 .dialog-body #walk-dialog-text,
-.dialog-body #bomb-dialog-text {
+.dialog-body #bomb-dialog-text,
+.dialog-body #memory-dialog-text {
   font-size:13px;
   line-height:1.7;
   color:var(--muted);
@@ -1394,7 +1395,8 @@ input[type=range] {
 /* A kártyajáték állapotfeliratának helye megmarad. */
 #card-status,
 #walk-status,
-#bomb-status {
+#bomb-status,
+#memory-status {
   visibility:hidden;
   height:12px;
   min-height:12px;

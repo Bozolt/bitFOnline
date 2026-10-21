@@ -296,6 +296,9 @@
     $('memory-next').textContent = success ? 'Hibátlan sorrend!' : 'Próbáld újra!';
     status('memory-status', success ? `Szép munka! Mind a(z) ${memory.count} kört megtaláltad. Időd: ${time}.` : `A sorrend megszakadt. A(z) ${memory.next}. számot kellett volna választani.`, success ? 'success' : 'error');
     $('memory-start').textContent = 'Új próba ↗';
+    $('memory-dialog-title').textContent = success ? 'Hibátlan sorrend!' : 'Most nem sikerült!';
+    $('memory-dialog-text').textContent = success ? `Időd: ${time}` : `A(z) ${memory.next}. számot kellett volna választani.`;
+    if (!$('memory-dialog').open) $('memory-dialog').showModal();
   }
   function pickMemory(number) {
     if (!memory || memory.over) return;
@@ -315,6 +318,7 @@
     }
   }
   function startMemory() {
+    if ($('memory-dialog').open) $('memory-dialog').close();
     stopMemoryTime();
     const count = Number($('memory-count').value);
     memory = { count, next: 1, over: false, hidden: false };
@@ -331,6 +335,9 @@
     $('memory-start').textContent = 'Újrakezdés ↗';
     memoryStarted = performance.now(); updateTime();
   }
+  $('memory-dialog-new').addEventListener('click', startMemory);
+  $('memory-dialog-close').addEventListener('click', () => $('memory-dialog').close());
+  $('memory-dialog').addEventListener('click', event => { if (event.target === $('memory-dialog')) $('memory-dialog').close(); });
   $('memory-start').addEventListener('click', startMemory);
 
   let currentView = 'home';
@@ -350,6 +357,7 @@
     if ($('card-dialog').open) $('card-dialog').close();
     if ($('walk-dialog').open) $('walk-dialog').close();
     if ($('bomb-dialog').open) $('bomb-dialog').close();
+    if ($('memory-dialog').open) $('memory-dialog').close();
     document.querySelectorAll('.view').forEach(section => { section.hidden = section.id !== target; });
     currentView = target;
     const title = target === 'home' ? 'Online műhely' : $(target).querySelector('h1').textContent;
