@@ -4,7 +4,7 @@
   --accent:#713d96;
   --muted:#6c567e;
   --line:#cbb3e0;
-  --yellow:#f2cc59;
+  --mint:#afe8ce;
   --red:#c44d43;
   --blue:#477bc1;
   --surface:#f3e9ff;
@@ -223,8 +223,8 @@ h1 span {
 .piece-two {
   right:34px;
   top:78px;
-  background:var(--yellow);
-  color:#5a4125;
+  background:var(--mint);
+  color:#245c48;
   transform:rotate(12deg)
 }
 .piece-three {
@@ -349,7 +349,7 @@ h1 span {
   transform:rotate(-8deg)
 }
 .numbers-art b:last-child {
-  background:#f6e4a3;
+  background:#c8f0df;
   transform:rotate(8deg)
 }
 .numbers-art span {
@@ -383,11 +383,11 @@ h1 span {
   border-color:#542773
 }
 .chairs-art i:nth-child(4) {
-  background:var(--yellow);
-  border-color:#c4a44e
+  background:var(--mint);
+  border-color:#69b996
 }
 .chairs-art i:nth-child(4):after {
-  border-color:#c4a44e
+  border-color:#69b996
 }
 .cards-art i {
   font-style:normal;
@@ -445,7 +445,7 @@ h1 span {
   transform:rotate(9deg)
 }
 .wires-art i:nth-child(2) {
-  background:var(--yellow);
+  background:#e9b82b;
   transform:rotate(-7deg)
 }
 .wires-art i:nth-child(3) {
@@ -469,7 +469,7 @@ h1 span {
   font-weight:700
 }
 .memory-art i:nth-child(2) {
-  background:var(--yellow);
+  background:var(--mint);
   transform:translateY(-19px)
 }
 .memory-art i:nth-child(3) {
@@ -684,9 +684,9 @@ input[type=range] {
   color:var(--accent)
 }
 .player-two {
-  background:#fcf0c5;
-  color:#7d641b;
-  border-color:#e8d99f
+  background:#d5f4e6;
+  color:#245c48;
+  border-color:#8bd1b0
 }
 .score.active {
   outline:2px solid currentColor;
@@ -753,9 +753,9 @@ input[type=range] {
   color:white
 }
 .chair.owner-2 .chair-seat {
-  background:var(--yellow);
-  border-color:#b99a39;
-  color:#4e441d
+  background:var(--mint);
+  border-color:#69b996;
+  color:#245c48
 }
 .chair.blocked .chair-seat {
   background:repeating-linear-gradient(45deg,#f8f0fd,#f8f0fd 5px,#eadcf4 5px,#eadcf4 7px);
@@ -817,7 +817,7 @@ input[type=range] {
   background:#eff4e9
 }
 .playing-card.selected {
-  outline:3px solid #d5aa34;
+  outline:3px solid #63bd99;
   outline-offset:5px
 }
 .stage-footer {
@@ -916,7 +916,7 @@ input[type=range] {
   white-space:nowrap
 }
 .bomb-label span:last-child {
-  color:#e5bd54
+  color:#afe8ce
 }
 .wire-board {
   display:flex;
@@ -1040,8 +1040,8 @@ input[type=range] {
   background:#c74a43
 }
 .memory-circle.missed {
-  background:#e8be4e;
-  color:#594a1f
+  background:#afe8ce;
+  color:#245c48
 }
 .empty-message {
   position:absolute;
