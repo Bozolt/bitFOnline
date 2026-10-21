@@ -6,3 +6,22 @@
 @media(max-width:950px){.header{padding:23px 28px}main{padding:0 28px}.hero{gap:15px}h1{font-size:50px}.hero-art{transform:scale(.85);transform-origin:right center}.game-grid{gap:14px}.game-card{padding:17px}.game-card h3{font-size:17px}.card-top{font-size:7px}.workspace{grid-template-columns:220px minmax(0,1fr);gap:16px}.settings{padding:20px}.play-area{padding:20px}.playing-card{height:150px}.card-stage{height:215px}.playing-card .card-symbol{font-size:40px}footer{margin:0 28px}.area-heading h2{font-size:15px}}
 @media(max-width:700px){.header{padding:20px}.brand{font-size:21px}.header nav{gap:15px}.offline{font-size:0}.offline i{width:8px;height:8px}.home-link{font-size:11px}main{padding:0 20px}.hero{padding:42px 0 34px;grid-template-columns:1fr}.hero h1{font-size:49px}.hero-art{display:none}.hero-copy{font-size:14px}.eyebrow{font-size:9px}.section-line>span{font-size:8px;letter-spacing:0}.game-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.game-card{padding:15px}.card-top{align-items:flex-start;flex-direction:column;gap:7px}.tile-art{height:85px;margin:8px 0}.game-card h3{font-size:17px;line-height:1.25;min-height:42px}.game-card p{font-size:11px;line-height:1.7}.game-card p br{display:none}.card-bottom{font-size:10px}.chairs-art{gap:7px}.chairs-art i{width:25px;height:33px}.chairs-art i:after{top:26px}.numbers-art{gap:8px}.numbers-art b{width:46px;height:46px;font-size:24px}.numbers-art span{font-size:15px}.wires-art{gap:12px}.memory-art{gap:6px}.memory-art i{width:32px;height:32px}.game-view h1{font-size:34px;letter-spacing:-1.2px}.intro{font-size:13px}.workspace{grid-template-columns:1fr}.settings{padding:20px}.settings h2{margin-bottom:15px}.rule{margin-top:18px;padding-top:13px}.rule p{font-size:11px}.color-order{display:flex;list-style:none;gap:12px;flex-wrap:wrap;padding:0}.play-area{padding:18px;min-height:300px}.back{margin-bottom:27px}.playing-card{height:160px}.card-stage{max-width:470px;margin-top:20px;height:220px}.playing-card .card-symbol{font-size:48px}.memory-circle{font-size:20px}.map-cell{font-size:10px}.bomb-case{padding:18px 10px}.bomb-label{font-size:7px}.wire-board{gap:5px}.wire-button{min-width:27px}.wire{width:8px}.score-row{gap:10px}.score{padding:10px;font-size:11px}.score strong{font-size:23px}footer{margin:0 20px;font-size:9px;gap:15px}.stage-footer{font-size:7px;letter-spacing:1px}}
 @media(prefers-reduced-motion:reduce){.game-card,button,.button{transition:none}}
+
+.result-dialog{width:min(440px,calc(100% - 32px));padding:0;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);color:var(--ink);box-shadow:0 24px 60px rgba(37,61,53,.28)}
+.result-dialog::backdrop{background:rgba(37,61,53,.55)}
+.result-dialog[open]{animation:dialog-in .22s ease-out}
+@keyframes dialog-in{from{opacity:0;transform:translateY(10px) scale(.98)}}
+.dialog-body{padding:28px}
+.dialog-body .eyebrow{margin-bottom:13px}
+.dialog-body h2{font-size:28px;margin:0 0 12px;letter-spacing:-.8px}
+.dialog-body #chair-dialog-text{font-size:13px;line-height:1.7;color:var(--muted);margin:0 0 20px}
+.dialog-actions{display:flex;gap:10px;margin-top:22px}
+.dialog-actions .primary{flex:1;margin:0}
+@media(prefers-reduced-motion:reduce){.result-dialog[open]{animation:none}}
+
+/* 2. feladat: több hely a pontdobozok és a székek között, felesleges üres rész nélkül a sor alatt */
+#chairs .play-area{min-height:0}
+#chairs .score-row{margin-bottom:38px}
+#chairs .chair-scroll{padding:10px 2px 4px}
+#chairs .play-area>.hint{margin:6px 0 0}
+@media(max-width:700px){#chairs .score-row{margin-bottom:28px}}

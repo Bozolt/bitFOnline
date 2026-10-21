@@ -36,7 +36,7 @@
   function renderChairs() {
     const scores = G.chairScores(chairs);
     $('score-one').textContent = scores[0]; $('score-two').textContent = scores[1];
-    document.querySelectorAll('.score').forEach((node, i) => node.classList.toggle('active', !chairs.over && chairs.current === i + 1));
+    document.querySelectorAll('#chairs .score').forEach((node, i) => node.classList.toggle('active', !chairs.over && chairs.current === i + 1));
     const legal = G.legalChairs(chairs);
     $('chair-board').replaceChildren();
     chairs.values.forEach((value, i) => {
@@ -50,13 +50,23 @@
       button.addEventListener('click', () => { if (G.takeChair(chairs, i)) renderChairs(); });
       $('chair-board').append(button);
     });
-    if (chairs.over) {
-      const winner = scores[0] === scores[1] ? 'Döntetlen!' : `${scores[0] > scores[1] ? 1 : 2}. játékos nyert!`;
-      status('chair-status', `Vége: a(z) ${chairs.current}. játékos nem tud lépni. ${winner} Eredmény: ${scores[0]} – ${scores[1]}.`, 'success');
-    } else status('chair-status', `${chairs.current}. játékos következik. ${legal.length} szabad, választható szék.`);
+    if (chairs.over) showChairResult(scores);
+  }
+  function showChairResult(scores) {
+    const draw = scores[0] === scores[1], winner = scores[0] > scores[1] ? 1 : 2;
+    $('chair-dialog-title').textContent = draw ? 'Döntetlen!' : `${winner}. játékos nyert!`;
+    $('chair-dialog-text').textContent = `A(z) ${chairs.current}. játékos nem tud lépni, ezért a játék véget ért.`;
+    $('result-one').querySelector('strong').textContent = scores[0];
+    $('result-two').querySelector('strong').textContent = scores[1];
+    $('result-one').classList.toggle('active', !draw && winner === 1);
+    $('result-two').classList.toggle('active', !draw && winner === 2);
+    if (!$('chair-dialog').open) $('chair-dialog').showModal();
   }
   function startChairs() { chairs = G.newChairs(Number($('chair-count').value)); renderChairs(); }
   $('chair-start').addEventListener('click', startChairs);
+  $('chair-dialog-new').addEventListener('click', () => { $('chair-dialog').close(); startChairs(); });
+  $('chair-dialog-close').addEventListener('click', () => $('chair-dialog').close());
+  $('chair-dialog').addEventListener('click', event => { if (event.target === $('chair-dialog')) $('chair-dialog').close(); });
   startChairs();
 
   let cardRun = 0, cardPhase = 'idle', cardPositions = [0, 1, 2], cardAnimations = [], cardNodes = [];
@@ -288,6 +298,7 @@
         status('memory-status', 'A próba megszakadt. Indíts új játékot.');
       }
     }
+    if ($('chair-dialog').open) $('chair-dialog').close();
     document.querySelectorAll('.view').forEach(section => { section.hidden = section.id !== target; });
     currentView = target;
     const title = target === 'home' ? 'Online műhely' : $(target).querySelector('h1').textContent;
