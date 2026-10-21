@@ -377,7 +377,7 @@
     document.querySelectorAll('.view').forEach(section => { section.hidden = section.id !== target; });
     currentView = target;
     const title = target === 'home' ? 'Online műhely' : $(target).querySelector('h1').textContent;
-    document.title = title + ' · Bitfaragó';
+    document.title = title + ' · NullPointers';
     if (hash === 'challenges') $('challenges').scrollIntoView();
     else window.scrollTo(0, 0);
   }

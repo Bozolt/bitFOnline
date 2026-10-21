@@ -92,30 +92,6 @@ button:active:not(:disabled) {
   font-weight:800;
   letter-spacing:-.8px
 }
-.brand-icon {
-  height:43px;
-  width:43px;
-  display:grid;
-  place-content:center;
-  background:var(--accent);
-  color:#f4e6ff;
-  border-radius:12px;
-  font-size:26px;
-  display:flex;
-  align-items:center;
-  letter-spacing:-3px;
-  padding-right:4px
-}
-.brand-icon span {
-  color:white
-}
-.brand-sub {
-  display:block;
-  font-size:8px;
-  letter-spacing:2px;
-  margin-top:4px;
-  font-weight:700
-}
 .header nav {
   display:flex;
   align-items:center;
@@ -124,19 +100,6 @@ button:active:not(:disabled) {
 }
 .home-link {
   font-weight:700
-}
-.offline {
-  display:flex;
-  align-items:center;
-  gap:8px;
-  color:var(--muted);
-  font-size:12px
-}
-.offline i {
-  height:6px;
-  width:6px;
-  background:#569a65;
-  border-radius:50%
 }
 main {
   max-width:1280px;
@@ -1128,14 +1091,7 @@ input[type=range] {
   .header nav {
     gap:15px
   }
-  .offline {
-    font-size:0
-  }
-  .offline i {
-    width:8px;
-    height:8px
-  }
-  .home-link {
+      .home-link {
     font-size:11px
   }
   main {
@@ -1484,12 +1440,8 @@ input[type=range] {
   border-color:var(--line);
   background-image:radial-gradient(#65477f 1px,transparent 1px);
 }
-:root[data-theme="dark"] .brand-icon,
 :root[data-theme="dark"] .piece-one,
 :root[data-theme="dark"] .memory-art i:nth-child(3) {
-  color:var(--on-accent);
-}
-:root[data-theme="dark"] .brand-icon span {
   color:var(--on-accent);
 }
 :root[data-theme="dark"] .piece-three {
@@ -1525,4 +1477,14 @@ input[type=range] {
   -webkit-text-fill-color:#ffffff;
   opacity:1;
   text-shadow:0 1px 3px #311d52;
+}
+
+.brand-logo {
+  display:block;
+  width:46px;
+  height:46px;
+  flex-shrink:0;
+}
+.brand-accent {
+  color:var(--accent);
 }

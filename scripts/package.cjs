@@ -3,7 +3,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
-const files = ['index.html', 'styles.css', 'js/core.js', 'js/app.js', 'assets/favicon.svg', 'README.md', 'package.json', 'scripts/package.cjs', 'tests/core.test.cjs'];
+const files = ['index.html', 'styles.css', 'js/core.js', 'js/app.js', 'assets/favicon.svg', 'assets/logo.svg', 'README.md', 'package.json', 'scripts/package.cjs', 'tests/core.test.cjs'];
 const crcTable = Array.from({ length: 256 }, (_, n) => {
   for (let i = 0; i < 8; i++) n = (n & 1) ? 0xedb88320 ^ (n >>> 1) : n >>> 1;
   return n >>> 0;
