@@ -1395,3 +1395,37 @@ input[type=range] {
   margin: 0px;
   padding: 0px;
 }
+.dialog-cards {
+  display:flex;
+  gap:16px;
+  padding:8px;
+  margin:20px 0 8px;
+}
+.dialog-cards .playing-card {
+  position:static;
+  display:flex;
+  flex:1;
+  min-width:0;
+  width:auto;
+  height:148px;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+}
+.dialog-cards .playing-card .card-symbol {
+  font-size:44px;
+}
+.dialog-cards .playing-card .card-name {
+  font-size:10px;
+}
+@media(max-width:400px) {
+  .dialog-cards {
+    gap:12px;
+  }
+  .dialog-cards .playing-card {
+    height:120px;
+  }
+  .dialog-cards .playing-card .card-symbol {
+    font-size:36px;
+  }
+}

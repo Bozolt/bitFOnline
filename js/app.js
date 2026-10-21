@@ -99,6 +99,16 @@
     $('card-start').textContent = 'Új játék ↗';
     $('card-dialog-title').textContent = id === 0 ? 'Nyertél!' : 'Most nem sikerült!';
     $('card-dialog-text').textContent = id === 0 ? 'Szép munka! Megtaláltad a piros lapot.' : 'Ez most nem a piros lap. Próbáld újra!';
+    $('card-dialog-cards').replaceChildren();
+    faces.forEach((face, faceId) => {
+      const card = document.createElement('div');
+      card.className = 'playing-card ' + face.className + (faceId === id ? ' selected' : '');
+      card.style.order = cardPositions[faceId];
+      card.setAttribute('role', 'img');
+      card.setAttribute('aria-label', face.name + ' kártya' + (faceId === id ? ', ezt választottad' : ''));
+      card.innerHTML = `<span class="card-symbol" aria-hidden="true">${face.symbol}</span><span class="card-name" aria-hidden="true">${face.name}</span>`;
+      $('card-dialog-cards').append(card);
+    });
     if (!$('card-dialog').open) $('card-dialog').showModal();
   }
   function cancelCards() {
