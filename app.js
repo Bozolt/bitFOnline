@@ -234,6 +234,11 @@
   $('walk-reset').addEventListener('click', resetWalk); resetWalk();
 
   let bomb;
+  function showBombResult(success) {
+    $('bomb-dialog-title').textContent = success ? 'A bomba hatástalanítva!' : 'Rossz sorrend!';
+    $('bomb-dialog-text').textContent = $('bomb-status').textContent;
+    if (!$('bomb-dialog').open) $('bomb-dialog').showModal();
+  }
   function renderBomb(wrong = null) {
     $('wire-board').replaceChildren();
     bomb.wires.forEach((colorId, i) => {
@@ -250,9 +255,11 @@
         if (!result) {
           status('bomb-status', `Rossz sorrend! A próbálkozás véget ért. A(z) ${expected + 1}. (${G.colors[bomb.wires[expected]].name}) vezetékkel kellett volna folytatni.`, 'error');
           $('bomb-light').textContent = '● SIKERTELEN';
+          showBombResult(false);
         } else if (bomb.over) {
           status('bomb-status', 'Kiváló munka, Carl! Minden vezetéket jó sorrendben vágtál el. A bomba hatástalanítva!', 'success');
           $('bomb-light').textContent = '● HATÁSTALAN';
+          showBombResult(true);
         } else status('bomb-status', 'Jó vágás! Válaszd ki a következő vezetéket.');
       });
       $('wire-board').append(button);
@@ -260,10 +267,14 @@
     $('bomb-progress').textContent = `${bomb.cut.length} / ${bomb.wires.length} elvágva`;
   }
   function startBomb() {
+    if ($('bomb-dialog').open) $('bomb-dialog').close();
     bomb = { wires: Array.from({ length: Number($('wire-count').value) }, () => G.randomInt(0, 4)), cut: [], over: false };
     $('bomb-light').textContent = '● AKTÍV';
     renderBomb(); status('bomb-status', 'Vágd el a vezetékeket fordított betűrendben, azonos színnél balról jobbra.');
   }
+  $('bomb-dialog-new').addEventListener('click', startBomb);
+  $('bomb-dialog-close').addEventListener('click', () => $('bomb-dialog').close());
+  $('bomb-dialog').addEventListener('click', event => { if (event.target === $('bomb-dialog')) $('bomb-dialog').close(); });
   $('bomb-start').addEventListener('click', startBomb); startBomb();
 
   let memory = null, memoryFrame = null, memoryNodes = [], memoryStarted = 0;
@@ -338,6 +349,7 @@
     if ($('chair-dialog').open) $('chair-dialog').close();
     if ($('card-dialog').open) $('card-dialog').close();
     if ($('walk-dialog').open) $('walk-dialog').close();
+    if ($('bomb-dialog').open) $('bomb-dialog').close();
     document.querySelectorAll('.view').forEach(section => { section.hidden = section.id !== target; });
     currentView = target;
     const title = target === 'home' ? 'Online műhely' : $(target).querySelector('h1').textContent;
