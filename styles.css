@@ -1514,3 +1514,15 @@ input[type=range] {
   background:var(--accent-hover);
   color:var(--on-accent);
 }
+
+/* Erős kontraszt a harmadik feladat csillagaihoz sötét módban. */
+:root[data-theme="dark"] .cards-art i:first-child,
+:root[data-theme="dark"] .cards-art i:last-child {
+  color:#542773;
+}
+:root[data-theme="dark"] .playing-card.backside .card-symbol {
+  color:#ffffff;
+  -webkit-text-fill-color:#ffffff;
+  opacity:1;
+  text-shadow:0 1px 3px #311d52;
+}
