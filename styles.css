@@ -1436,3 +1436,7 @@ input[type=range] {
     font-size:36px;
   }
 }
+
+#fix1 {
+  margin: 40px;
+}
